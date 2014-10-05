@@ -10,7 +10,6 @@ set autoread
 
 " Turn on the WiLd menu
 set wildmenu
-
 set wildignore=*.o,*~,*.pyc,.svn\*
 
 "Always show current position
@@ -25,9 +24,12 @@ set whichwrap+=<,>,h,l
 
 " Highlight search results
 set hlsearch
-
 " Makes search act like search in modern browsers
 set incsearch 
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
 
 " Show matching brackets when text indicator is over them
 set showmatch 
