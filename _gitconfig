@@ -1,0 +1,7 @@
+[user]
+	name = Yue Xing
+	email = amyue.xing@gmail.com
+[core]
+	editor = vim
+[push]
+	default = current
