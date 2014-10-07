@@ -5,6 +5,9 @@ let leader = "\\"
 filetype plugin on
 filetype indent on
 
+" 
+set cursorline
+
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -127,6 +130,9 @@ nnoremap <leader>' hea'<esc>hbi'<esc>
 " TODO: make it based on filetype
 vnoremap <leader>/ <esc>`<i/*<esc>`>a*/<esc>
 
+" folding
+set foldmethod=syntax
+
 " operator pending movement
 " used in din(, cin(.
 onoremap in( :<c-u>normal! f(vi(<cr>
@@ -148,8 +154,12 @@ augroup toplevel
   autocmd!
   " close vim if the only window left open is a nerdtree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+  autocmd bufenter * normal! zR
   " insert hpp header
   autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
+  " support SCons
+  autocmd BufReadPre SConstruct set filetype=python
+  autocmd BufReadPre SConscript set filetype=python
 augroup END
 
 " ctags: looks for tags until /
