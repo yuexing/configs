@@ -100,8 +100,12 @@ filetype plugin indent on
 map <C-n> :NERDTreeToggle<CR>
 
 " color column
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+if exists('+colorcolumn')
+  set colorcolumn=80
+else
+  highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+  match OverLength /\%81v.\+/
+endif
 
 " line number
 set nu
