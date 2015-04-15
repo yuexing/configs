@@ -1,0 +1,90 @@
+function svn_cleanup()
+{
+  svn st | grep '^?' | awk '{print $2}' | xargs rm -rf
+}
+
+function build_ionic_ios()
+{
+  ionic platform add ios;
+  ionic build ios;
+  ionic emulate ios
+}   
+
+# history_of_file
+#
+# Outputs the full history of a given file as a sequence of
+# logentry/diff pairs.  The first revision of the file is emitted as
+# full text since there's not previous version to compare it to.
+
+function history_of_file() {
+url=$1 # current url of file
+svn log -q $url | grep -E -e "^r[[:digit:]]+" -o | cut -c2- | sort -n | {
+
+#       first revision as full text
+echo
+read r
+svn log -r$r $url@HEAD
+svn cat -r$r $url@HEAD
+echo
+
+#       remaining revisions as differences to previous revision
+while read r
+do
+  echo
+  svn log -r$r $url@HEAD
+  svn diff -c$r $url@HEAD
+  echo
+done
+}
+}
+
+function my_commits_in_branch()
+{
+svn log --stop-on-copy|sed -n "1p; 2,/^-/d; /yxing/,/^-/p"
+}
+
+function my_commits_in_trunk_since()
+{
+svn log -r $1:HEAD svn://svn.tango.corp/trunk | sed -n "1p; 2,/^-/d; /yxing/,/^-/p"
+}
+
+function rainbow()
+{
+  for COLOR in {0..255}; do
+      for STYLE in "38;5"; do
+        TAG="\033[${STYLE};${COLOR}m"
+        STR="${STYLE};${COLOR}"
+        echo -ne "${TAG}${STR}${NONE}  "
+       done
+  done
+}
+
+ulimit -c unlimited
+
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib:/usr/lib:.
+export LD_LIBRARY_PATH
+
+# java
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=$JAVA_HOME/bin:$PATH
+
+# add jni to default include path
+export C_INCLUDE_PATH=$C_INCLUDE_PATH:$JAVA_HOME/include:$JAVA_HOME/include/darwin
+export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:$JAVA_HOME/include:$JAVA_HOME/include/darwin
+
+# Don't use color, because it cause shift in mac
+Blue='\[\e[01;34m\]'
+White='\[\e[01;37m\]'
+Red='\[\e[01;31m\]'
+Green='\[\e[01;32m\]'
+Reset='\[\e[00m\]'
+
+export PS1=$'[%/]\$ '
+
+# make /usr/local/bin take precedence of /usr/bin because we want to use homebrew
+export PATH="/usr/local/bin:$PATH"
+export SVN_EDITOR=vim
+
+# mac-ios-debug
+export DYLD_LIBRARY_PATH="/Users/yxing/Downloads/benvium-libimobiledevice-macosx-8507dd2:$DYLD_LIBRARY_PATH"
+export PATH="/Users/yxing/Downloads/benvium-libimobiledevice-macosx-8507dd2:$PATH"
