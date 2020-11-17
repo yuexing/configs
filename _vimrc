@@ -168,3 +168,6 @@ augroup END
 
 " ctags: looks for tags until /
 set tags=./tags,tags;/
+
+" ctrlp
+set runtimepath^=~/.vim/bundle/ctrlp.vim
