@@ -13,3 +13,26 @@ install oh-my-zsh
 install plugin
 
 > git clone https://github.com/zsh-users/zsh-docker.git
+
+vim install pathogen
+
+> https://github.com/tpope/vim-pathogen
+
+vim pathogen install nerdtree
+
+> https://github.com/preservim/nerdtree
+
+vim ctrlp
+
+> http://kien.github.io/ctrlp.vim/#installation
+
+vim omnicompeleting
+
+> https://vim.fandom.com/wiki/C%2B%2B_code_completion
+
+vim syntax checking
+> https://github.com/vim-syntastic/syntastic
+
+vim A-script
+> https://www.vim.org/scripts/script.php?script_id=31
+
