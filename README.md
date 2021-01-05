@@ -6,6 +6,11 @@ install homebrew
 
 >  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+install gdb (https://dev.to/jasonelwood/setup-gdb-on-macos-in-2020-489k)
+
+> brew install gdb
+> codesign --entitlements gdb-entitlement.xml -fs gdbcert /usr/local/bin/gdb
+
 install oh-my-zsh
 
 > sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
