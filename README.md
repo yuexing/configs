@@ -1,3 +1,9 @@
+# Backup An Old Mac
+
+Settings - Wifi - Advanced - Proxy (xiegongji)
+
+
+
 # Config A New Mac
 
 > xcode-select —-install
