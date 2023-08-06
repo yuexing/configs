@@ -24,6 +24,7 @@ install homebrew
 install gdb (https://dev.to/jasonelwood/setup-gdb-on-macos-in-2020-489k)
 
 > brew install gdb
+
 > codesign --entitlements gdb-entitlement.xml -fs gdbcert /usr/local/bin/gdb
 
 install oh-my-zsh
@@ -59,17 +60,25 @@ vim A-script
 Download jdk
 
 > mkdir ~/playground/java
+
 > tar -xzf
+
 > export JAVA_HOME=
+
 > export PATH="$JAVA_HOME/bin:$PATH"
+
 > java --version
 
 Download Maven
 
 > cd ~/playground/java
+
 > tar -xzf
+
 > export M2_HOME=
+
 > export PATH="$M2_HOME/bin:$PATH"
+
 > mvn --version
 
 Download Eclipse
@@ -90,6 +99,7 @@ Download Docker and config
 Install 
 
 > brew install pyenv
+
 > pyenv
 
 Config zshrc plugins
@@ -97,13 +107,13 @@ Config zshrc plugins
 Pyenv Usage https://realpython.com/intro-to-pyenv/
 
 > pyenv install --list | grep " 3\.[678]"
+
 > pyenv install -v 3.7.13 // lower version may meet cannot find clang++
+
 > pyenv versions
-> pyenv uninstall 2.7.15
-> pyenv global 2.7.15 // local, shell
-> pyenv which pip
 
 Pyenv virtualenv Usage
 
 > pyenv virtualenv 3.6.8 myproject
+
 > pyenv local myproject
