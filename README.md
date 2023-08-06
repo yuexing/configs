@@ -1,16 +1,25 @@
-# Backup An Old Mac
+# General Settings
 
-Settings - Wifi - Advanced - Proxy (xiegongji)
+Settings - Keyboard Shortcut 
 
+- Launch Pad
+- Input method
 
+# Network
 
-# Config A New Mac
+(Reference to xiegongji)
+
+Chrome: Settings - Wifi - Advanced - Proxy 
+
+OpenVPN(for all): remember to close Wifi settings
+
+# Development
 
 > xcode-select —-install
 
 install homebrew
 
->  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+>  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 install gdb (https://dev.to/jasonelwood/setup-gdb-on-macos-in-2020-489k)
 
