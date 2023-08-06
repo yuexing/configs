@@ -56,3 +56,24 @@ vim syntax checking
 vim A-script
 > https://www.vim.org/scripts/script.php?script_id=31
 
+# Java
+
+Download jdk
+
+> mkdir ~/playground/java
+> tar -xzf
+> export JAVA_HOME=
+> export PATH="$JAVA_HOME/bin:$PATH"
+> java --version
+
+Download Maven
+
+> cd ~/playground/java
+> tar -xzf
+> export M2_HOME=
+> export PATH="$M2_HOME/bin:$PATH"
+> mvn --version
+
+Download Eclipse
+
+choose the installed jdk
