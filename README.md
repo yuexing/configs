@@ -30,9 +30,7 @@ install oh-my-zsh
 
 > sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-install plugin
-
-> git clone https://github.com/zsh-users/zsh-docker.git
+# Vim
 
 vim install pathogen
 
@@ -87,5 +85,25 @@ Download Docker and config
 
 > export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
-# Python Env
+# Pyenv
 
+Install 
+
+> brew install pyenv
+> pyenv
+
+Config zshrc plugins
+
+Pyenv Usage https://realpython.com/intro-to-pyenv/
+
+> pyenv install --list | grep " 3\.[678]"
+> pyenv install -v 3.7.13 // lower version may meet cannot find clang++
+> pyenv versions
+> pyenv uninstall 2.7.15
+> pyenv global 2.7.15 // local, shell
+> pyenv which pip
+
+Pyenv virtualenv Usage
+
+> pyenv virtualenv 3.6.8 myproject
+> pyenv local myproject
