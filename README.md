@@ -76,4 +76,16 @@ Download Maven
 
 Download Eclipse
 
-choose the installed jdk
+- choose the installed jdk during installation
+- eclipse config maven (installation, user settings)
+- eclipse config junit ("Java Build Path" -> "Libraries" -> "Add Library")
+- eclipse tab -> 4_spaces: https://www.cnblogs.com/ZenoLiang/p/10318394.html
+
+# Docker
+
+Download Docker and config
+
+> export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+
+# Python Env
+
